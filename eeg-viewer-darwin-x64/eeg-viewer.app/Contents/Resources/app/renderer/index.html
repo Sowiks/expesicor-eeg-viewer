@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>EEG Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <div class="navbar-brand col-12">EEG Viewer</div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <!------------------ Menu -------------------->
+            <ul class="nav flex-column" id="navigation-menu"></ul>
+            <!-------------------------------------------->
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Data Sets</span>
+            </h6>
+            <!-----------------Data sets------------------>
+            <ul class="nav flex-column mb-2" id="datasets-menu"></ul>
+            <!-------------------------------------------->
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <!-------------------Top menu------------------->
+          <div class="d-flex pt-3 pb-2 mb-3 invisible" id="top-menu"></div>
+          <!---------------------------------------------->
+
+
+          <div class="d-block col-xs-9 px-4" id="content">
+            <!-----------------Open file------------------>
+            <div id="open-file-section-container">
+              <!----------------Drop field---------------->
+              <div class="jumbotron" id="drag-file">
+                <div class="d-flex justify-content-center align-items-center">
+                    <span class="feather-100" data-feather="upload"></span>
+                    <h1>
+                      <span class="pl-5 text-muted">Drop files or</span>
+                      <a class="text-primary nav-link d-inline p-0" href="#" id="open-file">browse</a>
+                    </h1>
+                </div>
+              </div>
+              <!------------------Messages----------------->
+              <div id="message-file"></div>
+              <!------------------------------------------->
+              <!-------------------Button------------------>
+              <div class="d-none flex-row justify-content-end">
+                <button class="btn btn-primary" id="ok-message-file">OK</button>
+              </div>
+              <!------------------------------------------->
+            </div>
+            <!-------------------------------------------->
+
+
+
+            <!-------------------Graphs------------------->
+            <div class="d-none" id="graphs-section-container">
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Data and Analysis</h1>
+              </div>
+            </div>
+            <!-------------------------------------------->
+
+
+
+            <!------------------Raw data------------------>
+            <div class="d-none" id="raw-data-section-container">
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Raw Data</h1>
+              </div>
+              <!------------------Table------------------->
+              <div class="table-responsive" id="raw-data-table"></div>
+              <!------------------------------------------>
+            </div>
+            <!-------------------------------------------->
+          </div>
+        </main>
+      </div>
+    </div>
+    <!-----------------Loading Spinner-------------------->
+    <div class="d-none spinner" id="spinner">
+      <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+    <!-------------------------------------------->
+    <script>
+      require("./index")
+    </script>
+  </body>
+</html>
