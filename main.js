@@ -92,8 +92,10 @@ ipcMain.on("openFiles", (event) => {
     properties: ["openFile", "multiSelections"],
     filters: [{ name: "EEG data", extensions: ["txt"]}]
   }).then((result) => {
-    win.webContents.send("loading", result.filePaths.length)
-    result.filePaths.forEach(parseFile)
+    if (result.filePaths.length > 0){
+      win.webContents.send("loading", result.filePaths.length)
+      result.filePaths.forEach(parseFile)
+    }
   })
 })
 
